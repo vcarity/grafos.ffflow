@@ -2,8 +2,8 @@ public class Main {
 
   public static void main(String[] args) throws java.lang.Exception {
 
-    Grafo grafo = new Grafo(args[0]);
-    // faz ff
+    ffflow ff = new ffflow();
+    ff.ffflow(args[0], Integer.parseInt(args[1]), Integer.parseInt(args[2]));
 
   }
 

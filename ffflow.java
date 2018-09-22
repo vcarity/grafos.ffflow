@@ -1,7 +1,11 @@
+import java.io.*;
+
 public class ffflow {
 
-  public int ffflow(int matriz, int origem, int destino) {
-    return 0;
+  public void ffflow(String args, int origem, int destino) throws FileNotFoundException {
+
+    Grafo grafo = new Grafo(args);
+    
   }
 
 }

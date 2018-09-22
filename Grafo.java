@@ -47,13 +47,6 @@ public class Grafo {
       this.matriz[arestas.get(k).origem - 1][arestas.get(k).destino - 1] = arestas.get(k).capacidade;
     }
 
-    /*for (int i = 0; i < this.numeroDeVertices; i++) {
-      for (int j = 0; j < this.numeroDeVertices; j++) {
-        System.out.print(this.matriz[i][j] + " ");
-      }
-      System.out.println();
-    }//*/
-
   }
 
 }
