@@ -5,19 +5,16 @@ public class Grafo {
 
   public int numeroDeVertices = 0;
   public LinkedList<Aresta> arestas = new LinkedList<Aresta>();
-  //public LinkedList<Vertice> vertices = new LinkedList<Vertice>();
+  public int matriz[][];
 
   public Grafo(String args) throws FileNotFoundException {
 
-    lerArestas(args);
-    Iterator it = arestas.iterator();
-    while(it.hasNext()) {
-      System.out.println(it.next() + " ");
-    }
+    lerEntrada(args);
+    definirMatriz();
 
   }
 
-  public void lerArestas(String args) throws FileNotFoundException {
+  public void lerEntrada(String args) throws FileNotFoundException {
 
     File entrada = new File(args);
     Scanner scanner = new Scanner(entrada);
@@ -28,8 +25,34 @@ public class Grafo {
       String[] coluna = linha.split(" ");
       Aresta aresta = new Aresta(coluna[0], coluna[1], coluna[2]);
       arestas.add(aresta);
+      if (Math.max(aresta.origem, aresta.destino) > this.numeroDeVertices) {
+        this.numeroDeVertices = Math.max(aresta.origem, aresta.destino);
+      }
 
     }
+
+  }
+
+  public void definirMatriz() {
+
+    this.matriz = new int[this.numeroDeVertices][this.numeroDeVertices];
+
+    for (int i = 0; i < this.numeroDeVertices; i++) {
+      for (int j = 0; j < this.numeroDeVertices; j++) {
+        this.matriz[i][j] = 0;
+      }
+    }
+
+    for (int k = 0; k < this.arestas.size(); k++) {
+      this.matriz[arestas.get(k).origem - 1][arestas.get(k).destino - 1] = arestas.get(k).capacidade;
+    }
+
+    /*for (int i = 0; i < this.numeroDeVertices; i++) {
+      for (int j = 0; j < this.numeroDeVertices; j++) {
+        System.out.print(this.matriz[i][j] + " ");
+      }
+      System.out.println();
+    }//*/
 
   }
 
