@@ -4,6 +4,7 @@ import java.util.*;
 public class Grafo {
 
   public int numeroDeVertices = 0;
+  public int numeroDeArestas = 0;
   public LinkedList<Aresta> arestas = new LinkedList<Aresta>();
   public int matriz[][];
 
@@ -30,6 +31,8 @@ public class Grafo {
       }
 
     }
+
+    this.numeroDeArestas = arestas.size();
 
   }
 
