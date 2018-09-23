@@ -2,11 +2,11 @@ import java.util.*;
 
 public class BFS {
 
-  int[] caminho;
+  int[] pai;
 
   public boolean buscarEmLargura(int[][] grafoResidual, int origem, int destino, int numeroDeVertices) {
 
-    this.caminho = new int[numeroDeVertices];
+    this.pai = new int[numeroDeVertices];
     boolean[] verticeVisitado = new boolean[numeroDeVertices];
     LinkedList<Integer> fila = new LinkedList<Integer>();
 
@@ -16,7 +16,7 @@ public class BFS {
 
     fila.add(origem);
     verticeVisitado[origem] = true;
-    caminho[origem] = -1;
+    pai[origem] = -1;
 
     while(fila.size() != 0) {
 
@@ -27,7 +27,7 @@ public class BFS {
         if ( (verticeVisitado[j] == false) && (grafoResidual[i][j] > 0) ) {
 
           fila.add(j);
-          caminho[j] = i;
+          pai[j] = i;
           verticeVisitado[j] = true;
 
         }

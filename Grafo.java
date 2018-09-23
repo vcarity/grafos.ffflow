@@ -48,7 +48,7 @@ public class Grafo {
 
     for (int k = 0; k < this.arestas.size(); k++) {
       this.matriz[arestas.get(k).origem - 1][arestas.get(k).destino - 1] = arestas.get(k).capacidade;
-    }
+    } 
 
   }
 

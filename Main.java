@@ -9,9 +9,15 @@ public class Main {
     System.out.println("[LOADING] Destino:      " + args[2]);
 
     ffflow ff = new ffflow();
-    int fluxMax = ff.ffflow(args[0], Integer.parseInt(args[1]), Integer.parseInt(args[2]));
+    int[] fluxo = ff.ffflow(args[0], Integer.parseInt(args[1]), Integer.parseInt(args[2]));
 
-    System.out.println("[DONE]    Fluxo Máximo: " + fluxMax);
+    System.out.print("[DONE]    Fluxo  :      ");
+    System.out.print("[");
+    for (int i = 0; i < fluxo.length; i++) {
+      System.out.print(fluxo[i] + " ");
+    }
+    System.out.print("]");
+    System.out.println();
 
   }
 
